@@ -1,0 +1,17 @@
+Base do projeto 
+1- npm init
+2- npm install typescript, node, prettier e eslint 
+3- .gitignore
+4- npx tsc --init
+5- editar documetno typescript
+6- pasta SRC e adicionar index.ts "Hello world"
+7- Rodar um npx tsc para compilar e criar: pasta dist que foi configurada no tsconfig
+8- Test: npx tsc -> node dist/index.js
+
+Configurar servidor
+1- instalar: npm install -g pnpm -> npm install --save-dev tsx@4.21.0
+2- adicionar no package.json -> "dev": "tsx --watch src/index.ts"
+
+
+Termos e conceitos importantes:
+I -convection commits; primeiro commit -> git commit -m "chore: and typescript and tsx setup"
