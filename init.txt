@@ -17,6 +17,11 @@ Termos e conceitos importantes:
 I -convection commits; primeiro commit -> git commit -m "chore: and typescript and tsx setup"
 II -  criar documento .npmrc
 III - configurar eslint e prettier
+IV - Criar pasta .vscode
 
-
-Criar pasta .vscode
+Backend - FastFy ou NestJS
+I- Installar FastFy
+II - intallar o dotenv
+III- Installar o Zod
+IV- schema  - repositorio https://github.com/turkerdev/fastify-type-provider-zod
+Basedo nesse codigo utilizar apra fazer o index.ts
