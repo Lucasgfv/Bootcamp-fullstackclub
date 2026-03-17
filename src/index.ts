@@ -1,7 +1,12 @@
 import 'dotenv/config'
-import { serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod';
+import { jsonSchemaTransform, serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod';
 import Fastify from 'fastify'
 import { z } from 'zod' // Adicionado
+import fastifySwagger from '@fastify/swagger';
+import fastifySwaggerUI from '@fastify/swagger-ui';
+
+
+
 
 const app = Fastify({
   logger: true
@@ -9,6 +14,32 @@ const app = Fastify({
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
+
+await app.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'Bootcamp API',
+      description: 'API para bootcamp',
+      version: '1.0.0',
+    },
+    servers: [{
+        description: 'Development server',
+        url: 'http://localhost:8080',
+    }
+],
+  },
+  transform: jsonSchemaTransform,
+
+  // You can also create transform with custom skiplist of endpoints that should not be included in the specification:
+  //
+  // transform: createJsonSchemaTransform({
+  //   skipList: [ '/documentation/static/*' ]
+  // })
+});
+
+app.register(fastifySwaggerUI, {
+  routePrefix: '/docs',
+});
 
 app.route({
   method: 'GET',

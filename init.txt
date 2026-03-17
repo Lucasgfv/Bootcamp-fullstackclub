@@ -25,3 +25,6 @@ II - intallar o dotenv
 III- Installar o Zod
 IV- schema  - repositorio https://github.com/turkerdev/fastify-type-provider-zod
 Basedo nesse codigo utilizar apra fazer o index.ts
+V - Forma de documentacao Swagger - Integrar fastify com Swagger
+npm install @fastify/swagger@9.7.0 @fastify/swagger-ui@5.2.5 --engine-strict=false
+VI - utilizar o repositorio para test 
