@@ -1,0 +1,9 @@
+// Configuracao do prettier
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.tabWidth": 2,
+    "prettier.semi": false
+}
