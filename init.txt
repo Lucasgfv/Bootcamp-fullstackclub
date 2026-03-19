@@ -1,30 +1,66 @@
-Base do projeto 
-1- npm init
-2- npm install typescript, node, prettier e eslint 
-3- .gitignore
-4- npx tsc --init
-5- editar documetno typescript
-6- pasta SRC e adicionar index.ts "Hello world"
-7- Rodar um npx tsc para compilar e criar: pasta dist que foi configurada no tsconfig
-8- Test: npx tsc -> node dist/index.js
+## I. Base do Projeto: TypeScript e Padronização
 
-Configurar servidor
-1- instalar: npm install -g pnpm -> npm install --save-dev tsx@4.21.0
-2- adicionar no package.json -> "dev": "tsx --watch src/index.ts"
+1.  **Inicialização:** `npm init -y`
+2.  **Instalação de Dependências:** `npm install typescript @types/node prettier eslint -D`
+3.  **Configuração Git:** Criar `.gitignore` (incluir `node_modules` e `dist`).
+4.  **Configuração TS:** `npx tsc --init`
+5.  **Ajuste no `tsconfig.json`:**
+    * `rootDir`: "./src"
+    * `outDir`: "./dist"
+6.  **Estrutura Inicial:** Criar pasta `src/` e o arquivo `src/index.ts` com `console.log("Hello World");`.
+7.  **Compilação:** Executar `npx tsc` para gerar a pasta `dist`.
+8.  **Teste de Execução:** `node dist/index.js`
+
+## II. Configuração do Servidor de Desenvolvimento
+
+1.  **Gerenciador e Executor:** `npm install -D tsx` (Opcional: `npm install -g pnpm`).
+2.  **Scripts no `package.json`:**
+    ```json
+    "scripts": {
+      "dev": "tsx --watch src/index.ts",
+      "build": "tsc"
+    }
+    ```
+
+### Conceitos e Ajustes Importantes
+* **Conventional Commits:** Ex: `git commit -m "chore: add typescript and tsx setup"`.
+* **Documento `.npmrc`:** Criar na raiz com `save-exact=true`.
+* **Linting:** Configurar `.eslintrc.json` e `.prettierrc`.
+* **VS Code:** Criar `.vscode/settings.json` para ativar *format on save*.
+
+## III. Backend: Fastify e Validação
+
+1.  **Instalação Core:** `npm install fastify dotenv zod`
+2.  **Integração Zod:** Utilizar `fastify-type-provider-zod`.
+3.  **Documentação (Swagger):** `npm install @fastify/swagger @fastify/swagger-ui --save-exact`
+4.  **Implementação:** Configurar `index.ts` registrando os plugins do Swagger e o Type Provider do Zod.
+
+## IV. Configuração de Banco de Dados (ORM)
+
+1.  **Instalação Prisma:** `npm install prisma -D` e `npm install @prisma/client@7.4.0 @prisma/adapter-pg@7.4.0`
+2.  **Inicialização:** `npx prisma init`
+3.  **Drivers de Conexão:** `npm install pg`
+8- container docker para rodar o banco dade dados criar documento docker compose e adicionar os dados reativos
+4.  **Configuração:** Definir `DATABASE_URL` no `.env`.
+colocar o .env no gitignore
+5.  **Docker:** * Criar `docker-compose.yml`
+    * `docker compose up -d`
+6.  **Sincronização:** `npx prisma generate` após atualizar o schema.
+7- formatar dados do prisma: npx prisma format
+rodar npx prisma db puh -> conectar com o banco e criar as tabeas 
+9- abrir o prima studeo no terminal
+
+## V. Autenticação e 
+
+1.  **Better-auth:** Instalar e configurar conforme documentação.
+2.  **Rotas e Documentação:** Criar rotas de login utilizando a biblioteca **Scalar**.
 
 
-Termos e conceitos importantes:
-I -convection commits; primeiro commit -> git commit -m "chore: and typescript and tsx setup"
-II -  criar documento .npmrc
-III - configurar eslint e prettier
-IV - Criar pasta .vscode
 
-Backend - FastFy ou NestJS
-I- Installar FastFy
-II - intallar o dotenv
-III- Installar o Zod
-IV- schema  - repositorio https://github.com/turkerdev/fastify-type-provider-zod
-Basedo nesse codigo utilizar apra fazer o index.ts
-V - Forma de documentacao Swagger - Integrar fastify com Swagger
-npm install @fastify/swagger@9.7.0 @fastify/swagger-ui@5.2.5 --engine-strict=false
-VI - utilizar o repositorio para test 
+Ferramentas IA
+3.  **Ferramentas de IA:**
+    * Gemini CLI
+    * Cloud Code
+    * Cursor
+
+Seria útil eu gerar um exemplo básico de `docker-compose.yml` para o seu PostgreSQL?
