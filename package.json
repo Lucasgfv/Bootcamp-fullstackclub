@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "tsx --watch src/index.ts"
   },
+  "engines": {
+    "node": "24"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +19,9 @@
     "prettier": "3.8.1",
     "tsx": "4.21.0",
     "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-import": "^2.32.0"
   }
 }
