@@ -7,6 +7,7 @@ import z from 'zod';
 import { auth } from './lib/auth.js';
 import { fromNodeHeaders } from 'better-auth/node';
 import fastifyCors from '@fastify/cors';
+import fastifyApiReference from '@scalar/fastify-api-reference';
 
 
 const app = Fastify({
@@ -31,13 +32,28 @@ await app.register(fastifySwagger, {
   transform: jsonSchemaTransform,
 });
 
-await app.register(fastifySwaggerUI, {
-  routePrefix: '/docs',
-});
 
 await app.register(fastifyCors, {
   origin: ["http://localhost:3000"],
   credentials: true,
+})
+
+await app.register(fastifyApiReference,{
+  routePrefix: "/docs",
+  configuration: {
+    sources: [
+      {
+        title: "Coach API",
+        slug: "coach-api",
+        url: "/swagger.json",
+      },
+      {
+        title: "Auth API",
+        slug: "auth-api",
+        url: "/api/auth/open-api/generate-schema",
+      }
+    ]
+  }
 })
 
 app.withTypeProvider<ZodTypeProvider>().route({
